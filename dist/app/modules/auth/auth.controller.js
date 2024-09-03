@@ -40,7 +40,7 @@ const signupController = (0, catchAsync_1.default)((req, res) => __awaiter(void 
 }));
 const loginController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield auth_service_1.AuthService.login(req.body);
-    const { refreshToken } = result, othersData = __rest(result, ["refreshToken"]);
+    const { refreshToken } = result;
     // set refresh token into cookie
     const cookieOptions = {
         secure: config_1.default.env === 'production',
@@ -51,7 +51,7 @@ const loginController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0
         statusCode: http_status_1.default.OK,
         success: true,
         message: 'User logged in successfully',
-        data: othersData,
+        data: result,
     });
 }));
 const refreshTokenController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
