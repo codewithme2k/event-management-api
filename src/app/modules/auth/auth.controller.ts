@@ -20,7 +20,7 @@ const signupController = catchAsync(async (req: Request, res: Response) => {
 
 const loginController = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.login(req.body);
-  const { refreshToken, ...othersData } = result;
+  const { refreshToken } = result;
 
   // set refresh token into cookie
 
@@ -35,7 +35,7 @@ const loginController = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User logged in successfully',
-    data: othersData,
+    data: result,
   });
 });
 
