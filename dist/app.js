@@ -2,16 +2,18 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
 const http_status_1 = __importDefault(require("http-status"));
 const globalErrorHandler_1 = __importDefault(require("./app/middlewares/globalErrorHandler"));
 const routes_1 = __importDefault(require("./app/routes"));
+const config_1 = __importDefault(require("./config"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['https://green-ecovents.vercel.app', 'http://localhost:3000'],
+    origin: [(_a = config_1.default.client_url) !== null && _a !== void 0 ? _a : 'http://localhost:3000'],
     credentials: true,
 }));
 app.use((0, cookie_parser_1.default)());
