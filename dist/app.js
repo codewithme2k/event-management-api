@@ -8,10 +8,11 @@ const express_1 = __importDefault(require("express"));
 const http_status_1 = __importDefault(require("http-status"));
 const globalErrorHandler_1 = __importDefault(require("./app/middlewares/globalErrorHandler"));
 const routes_1 = __importDefault(require("./app/routes"));
+const config_1 = __importDefault(require("./config"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['*'],
+    origin: [config_1.default.client_url, 'http://localhost:3000'],
     credentials: true,
 }));
 app.use((0, cookie_parser_1.default)());

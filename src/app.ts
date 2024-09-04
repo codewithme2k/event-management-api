@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 const app: Application = express();
 app.use(
   cors({
-    origin: ['*'],
+    origin: [config.client_url!, 'http://localhost:3000'],
     credentials: true,
   }),
 );
