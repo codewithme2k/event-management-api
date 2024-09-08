@@ -41,7 +41,9 @@ const loginController = catchAsync(async (req: Request, res: Response) => {
 
 const refreshTokenController = catchAsync(
   async (req: Request, res: Response) => {
-    const { refreshToken } = req.cookies;
+    const refreshToken = config.COOKIE_MODE
+      ? req.cookies.refreshToken
+      : req.headers.authorization?.split(' ')[1];
 
     const result = await AuthService.refreshToken(refreshToken);
 

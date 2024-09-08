@@ -25,5 +25,5 @@ export default {
     secret_key: process.env.STRIPE_SECRET_KEY,
     public_key: process.env.STRIPE_PUBLISHABLE_KEY,
   },
-  COOKIE_MODE: process.env.COOKIE_MODE,
+  COOKIE_MODE: process.env.COOKIE_MODE === 'true',
 };

@@ -21,7 +21,7 @@ const auth = (...requiredRoles) => (req, res, next) => __awaiter(void 0, void 0,
     try {
         //get authorization token
         const token = config_1.default.COOKIE_MODE
-            ? req.cookies.sessionToken
+            ? req.cookies.accessToken
             : (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
         if (!token) {
             throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, 'You are not authorized');

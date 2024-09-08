@@ -55,7 +55,10 @@ const loginController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0
     });
 }));
 const refreshTokenController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { refreshToken } = req.cookies;
+    var _a;
+    const refreshToken = config_1.default.COOKIE_MODE
+        ? req.cookies.refreshToken
+        : (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
     const result = yield auth_service_1.AuthService.refreshToken(refreshToken);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
