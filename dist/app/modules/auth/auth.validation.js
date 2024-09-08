@@ -49,11 +49,11 @@ const loginZodSchema = zod_1.z.object({
     }),
 });
 const refreshTokenZodSchema = zod_1.z.object({
-    cookies: zod_1.z.object({
-        refreshToken: zod_1.z.string({
-            required_error: 'Refresh token is required',
-        }),
-    }),
+// cookies: z.object({
+//   refreshToken: z.string({
+//     required_error: 'Refresh token is required',
+//   }),
+// }),
 });
 const changePasswordZodSchema = zod_1.z.object({
     body: zod_1.z.object({
