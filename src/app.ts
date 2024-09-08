@@ -3,13 +3,12 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import routes from './app/routes';
-import config from './config';
 import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 app.use(
   cors({
-    origin: [config.client_url!, 'http://localhost:3000'],
+    origin: ['*'],
     credentials: true,
   }),
 );

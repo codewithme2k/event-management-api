@@ -7,7 +7,7 @@ dotenv.config({ path: path.join(process.cwd(), '.env') });
 export default {
   env: process.env.NODE_ENV,
   port: process.env.PORT,
-  client_url:  process.env.CLIENT_URL,
+  client_url: process.env.CLIENT_URL,
   database_url: process.env.DATABASE_URL,
   bycrypt_salt_rounds: process.env.BCRYPT_SALT_ROUNDS,
   jwt: {
@@ -25,4 +25,5 @@ export default {
     secret_key: process.env.STRIPE_SECRET_KEY,
     public_key: process.env.STRIPE_PUBLISHABLE_KEY,
   },
+  COOKIE_MODE: process.env.COOKIE_MODE,
 };
