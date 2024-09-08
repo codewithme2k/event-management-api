@@ -17,9 +17,12 @@ const config_1 = __importDefault(require("../../config"));
 const ApiError_1 = __importDefault(require("../../errors/ApiError"));
 const jwtHelpers_1 = require("../../helpers/jwtHelpers");
 const auth = (...requiredRoles) => (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
         //get authorization token
-        const token = req.headers.authorization;
+        const token = config_1.default.COOKIE_MODE
+            ? req.cookies.sessionToken
+            : (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
         if (!token) {
             throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, 'You are not authorized');
         }
